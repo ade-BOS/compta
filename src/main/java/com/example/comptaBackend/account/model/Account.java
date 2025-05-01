@@ -3,6 +3,7 @@ package com.example.comptaBackend.account.model;
 import java.util.UUID;
 
 import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class Account {
 
     public enum Type{
 
-        ACTIF,
+        ACTIF,  
         PASSIF,
         PRODUIT,
         CHARGE
@@ -34,6 +35,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.UUID)
     UUID id;
     String name;
+    @Column(unique = true)
     String code;
     Type type;
     int balance;
